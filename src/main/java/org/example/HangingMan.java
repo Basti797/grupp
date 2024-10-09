@@ -55,7 +55,7 @@ public class HangingMan {
 
         if (guess.equalsIgnoreCase(word)) {
             System.out.println("Correct! the word was " + word);
-            System.exit(1);
+            System.exit(0);
         } else {
             System.out.println("Incorrect.");
         }
