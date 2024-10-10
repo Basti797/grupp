@@ -45,10 +45,14 @@ public class CommandManager {
             if (command.getName().equalsIgnoreCase(commandArgs[0])){
                 command.exec(commandArgs);
                 return;
-            }  else if (command.getName().equalsIgnoreCase(commandArgs[0] + " " + commandArgs[1])){
-                command.exec(commandArgs);
-                return;
             }
+            if (commandArgs.length>2){
+                if (command.getName().equalsIgnoreCase(commandArgs[0] + " " + commandArgs[1])){
+                    command.exec(commandArgs);
+                    return;
+                }
+            }
+
 
 
         }

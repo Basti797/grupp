@@ -12,6 +12,7 @@ public class StopCommand extends Command {
 
     @Override
     public void exec(String[] args) {
+        System.out.println("Exiting program!");
         commandManager.setRunning(false);
     }
 }
