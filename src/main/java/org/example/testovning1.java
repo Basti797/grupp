@@ -1,9 +1,9 @@
 package org.example;
 import java.util.Arrays;
 import java.util.Scanner;
-public class testövning1 {
+public class testovning1 {
     Scanner scanner = new Scanner(System.in);
-    public testövning1(){
+    public testovning1(){
         int[] arr = new int[5];
         for (int i = 0; i < arr.length; i++){
             System.out.print("Number " + i+1 + ": ");
