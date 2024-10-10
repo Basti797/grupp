@@ -1,7 +1,6 @@
 package org.example.commands;
 
 import org.example.Menu.CustomerMenu;
-import org.example.commands.impl.IcaCommand;
 import org.example.store.Main;
 import org.example.store.stores.Ica;
 import org.example.store.stores.Lidl;
@@ -16,6 +15,7 @@ public class CommandManager {
     private Role role;
     private Store store;
     private final ArrayList<Command> commands;
+    private boolean running = true;
 
     public CommandManager() {
         this.commands = new ArrayList<>();
@@ -30,15 +30,22 @@ public class CommandManager {
     }
 
     public void getInput(String input) {
-        String[] commandArgs = input.split(" ");
-
+        String[] commandArgs = input.toLowerCase().split(" ");
 
         if (commandArgs.length==0){
             throw new IllegalArgumentException("Not a valid command");
         }
 
+
         for (Command command : commands){
+            if (command.getName().equalsIgnoreCase(input.toLowerCase())){
+                command.exec(commandArgs);
+                return;
+            }
             if (command.getName().equalsIgnoreCase(commandArgs[0])){
+                command.exec(commandArgs);
+                return;
+            }  else if (command.getName().equalsIgnoreCase(commandArgs[0] + " " + commandArgs[1])){
                 command.exec(commandArgs);
                 return;
             }
@@ -69,20 +76,28 @@ public class CommandManager {
         }*/
     }
 
+    public boolean getRunning(){
+        return running;
+    }
+
+    public void setRunning(boolean running){
+        this.running = running;
+    }
+
 
     public void selectStore(String storeSelection) {
         switch (storeSelection) {
             case "lidl":
-                store = new Lidl(role);
+                store = new Lidl(this);
                 break;
-            case "Willys":
-                store = new Willys(role);
+            case "willys":
+                store = new Willys(this);
                 break;
             case "ica":
-                store = new Ica(role);
+                store = new Ica(this);
                 break;
             default:
-                store = new Lidl(role);
+                store = new Lidl(this);
         }
     }
 
