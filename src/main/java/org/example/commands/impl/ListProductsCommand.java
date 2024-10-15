@@ -12,6 +12,6 @@ public class ListProductsCommand extends Command {
 
     @Override
     public void exec(String[] args) {
-        commandManager.getStore().getStoreItems().entrySet().stream().forEach(System.out::println);
+        commandManager.getStore().getStoreItems().entrySet().forEach(System.out::println);
     }
 }

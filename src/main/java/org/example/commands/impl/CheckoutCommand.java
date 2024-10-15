@@ -13,6 +13,8 @@ public class CheckoutCommand extends Command {
 
     @Override
     public void exec(String[] args) {
+        commandManager.getInput("list wares");
+        System.out.println("Your total ");
 
     }
 }
