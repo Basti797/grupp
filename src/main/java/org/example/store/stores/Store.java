@@ -12,7 +12,7 @@ import java.util.Map;
 
 public abstract class Store {
     protected Map<String, Integer> storeItems = new HashMap<>();
-    public ArrayList<CashRegister> cashRegister = new ArrayList<>();
+    public ArrayList<CashRegister> cashRegisters = new ArrayList<>();
     public ArrayList<Employee> employees = new ArrayList<>();
 
     protected Role role;
@@ -37,9 +37,13 @@ public abstract class Store {
             employees.add(employee);
         }
 
-        if (role instanceof Cashier cashier) {
-           cashRegister.add(new CashRegister(cashier));
-        }
+//        if (role instanceof Cashier cashier) {
+//           cashRegister.add(new CashRegister(cashier));
+//        }
+    }
+
+    public void setEmployeeAtRegister(Employee employee){
+        cashRegisters.add(new CashRegister(new Cashier(employee.getName())));
     }
 
     public Map<String, Integer> getStoreItems() {

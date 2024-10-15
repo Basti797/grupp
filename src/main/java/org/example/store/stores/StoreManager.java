@@ -1,10 +1,6 @@
 package org.example.store.stores;
 
-import org.example.Menu.CustomerMenu;
-import org.example.Menu.IcaMenu;
-import org.example.Menu.LidlMenu;
-import org.example.Menu.WillysMenu;
-import org.example.commands.CommandManager;
+import org.example.Menu.*;
 import org.example.store.Main;
 import org.example.store.stores.impl.Ica;
 import org.example.store.stores.impl.Lidl;
@@ -12,10 +8,16 @@ import org.example.store.stores.impl.Willys;
 import org.example.store.titles.Role;
 import org.example.store.titles.impl.*;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 
 public class StoreManager {
     private Role role;
     private Store store;
+    private List<Store> savedStores = new ArrayList<>();
 
     private final Main main;
     public StoreManager(Main main){
@@ -26,8 +28,16 @@ public class StoreManager {
 
         switch (storeSelection) {
             case "lidl":
+                for (Store store : savedStores) {
+                    if (store instanceof Lidl) {
+                        this.store = store;
+                        main.menu = new LidlMenu(main);
+                        return;
+                    }
+                }
                 store = new Lidl(main);
                 main.menu = new LidlMenu(main);
+                savedStores.add(store);
                 break;
             case "willys":
                 store = new Willys(main);
@@ -46,6 +56,7 @@ public class StoreManager {
         switch (roleString.toLowerCase()) {
             case "manager":
                 role = new Manager(name);
+                main.menu = new ManagerMenu(main);
                 break;
             case "cashier":
                 role = new Cashier(name);

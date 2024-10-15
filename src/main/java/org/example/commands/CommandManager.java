@@ -16,6 +16,15 @@ public class CommandManager {
         commands.add(command);
     }
 
+    public Command getCommand(String input){
+        for (Command command : commands){
+            if (command.getName().equals(input)){
+                return command;
+            }
+        }
+        return null;
+    }
+
     public ArrayList<Command> getCommands() {
         return commands;
     }

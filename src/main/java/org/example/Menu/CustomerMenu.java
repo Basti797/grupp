@@ -8,7 +8,6 @@ import org.example.store.Main;
 public class CustomerMenu extends Menu {
     public CustomerMenu(Main main) {
         super(main);
-        main.getCommandManager().getCommands().clear();
         main.getCommandManager().addCommand(new StopCommand(main));
         main.getCommandManager().addCommand(new GoToStoreCommand(main));
     }
