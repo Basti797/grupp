@@ -5,15 +5,15 @@ import org.example.commands.CommandManager;
 import org.example.store.Main;
 
 public class CheckoutCommand extends Command {
-    private CommandManager commandManager;
-    public CheckoutCommand(CommandManager commandManager){
+    private Main main;
+    public CheckoutCommand(Main main){
         super("walk to checkout");
-        this.commandManager = commandManager;
+        this.main = main;
     }
 
     @Override
     public void exec(String[] args) {
-        commandManager.getInput("list wares");
+        main.getCommandManager().getInput("list wares");
         System.out.println("Your total ");
 
     }

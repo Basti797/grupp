@@ -1,18 +1,18 @@
 package org.example.commands.impl;
 
 import org.example.commands.Command;
-import org.example.commands.CommandManager;
+import org.example.store.Main;
 
 public class GoToStoreCommand extends Command {
-    private final CommandManager commandManager;
-    public GoToStoreCommand(CommandManager commandManager) {
+    private final Main main;
+    public GoToStoreCommand(Main main) {
         super("go to");
-        this.commandManager = commandManager;
+        this.main = main;
     }
 
     @Override
     public void exec(String[] args) {
-        commandManager.selectStore(args[2]);
+        main.storeManager.selectStore(args[2]);
 
     }
 }

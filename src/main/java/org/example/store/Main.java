@@ -6,39 +6,25 @@ import org.example.commands.CommandManager;
 
 import java.util.Scanner;
 import org.example.Menu.*;
+import org.example.store.stores.StoreManager;
 
 public class Main {
     public static Scanner scanner = new Scanner(System.in);
-    private static final CommandManager commandManager = new CommandManager();
-    public static Menu menu = new WelcomeMenu(commandManager);
+    private final CommandManager commandManager = new CommandManager(this);
+    public final StoreManager storeManager = new StoreManager(this);
+    public Menu menu = new WelcomeMenu(this);
+
     public static void main(String... args) {
-            
-        while(commandManager.getRunning()){
-//            System.out.println("Who are you? (choose between: Customer, Employee, Manager, Administrator, Cashier)");
-//            commandManager.selectRole(scanner.nextLine());
-            //System.out.println("What store do you want to enter? (Lidl)");
-            //commandManager.selectStore(scanner.nextLine().toLowerCase());
-            menu.Welcome();
+        Main main = new Main();
 
-            //commandManager.getStore().enter(commandManager.getRole());
+        while(main.commandManager.getRunning()){
+            main.menu.Welcome();
 
-            
-            //System.out.print("Choose command: ");
-
-            commandManager.getInput(scanner.nextLine());
-
-
+            main.commandManager.getInput(scanner.nextLine());
         }
     }
 
-
-
-
-
-
-
-
-
-
-
+    public CommandManager getCommandManager() {
+        return commandManager;
+    }
 }

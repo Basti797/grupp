@@ -1,14 +1,13 @@
-package org.example.store.stores;
+package org.example.store.stores.impl;
 
-import org.example.commands.CommandManager;
-import org.example.store.Role;
-import org.example.store.Store;
+import org.example.store.Main;
+import org.example.store.stores.Store;
 
 public class Willys extends Store {
-    public Willys(CommandManager commandManager) {
-        super(commandManager.getRole(), "Willys");
+    public Willys(Main main) {
+        super(main.storeManager.getRole(), "Willys");
 
-        enter(commandManager.getRole());
+        enter(main.storeManager.getRole());
     }
 
     @Override

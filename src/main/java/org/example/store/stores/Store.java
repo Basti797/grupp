@@ -1,8 +1,10 @@
-package org.example.store;
+package org.example.store.stores;
 
-import org.example.store.titles.Cashier;
-import org.example.store.titles.Customer;
-import org.example.store.titles.Employee;
+import org.example.store.CashRegister;
+import org.example.store.titles.Role;
+import org.example.store.titles.impl.Cashier;
+import org.example.store.titles.impl.Customer;
+import org.example.store.titles.impl.Employee;
 
 import java.util.ArrayList;
 import java.util.HashMap;

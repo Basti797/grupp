@@ -1,12 +1,11 @@
 package org.example.Menu;
 
-import org.example.commands.CommandManager;
-import org.example.commands.impl.ListProductsCommand;
+import org.example.store.Main;
 
 public class LidlMenu extends StoreMenu {
 
-    public LidlMenu(CommandManager commandManager) {
-        super(commandManager);
+    public LidlMenu(Main main) {
+        super(main);
     }
 
     @Override

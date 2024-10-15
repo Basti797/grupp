@@ -1,18 +1,15 @@
-package org.example.store.stores;
+package org.example.store.stores.impl;
 
 import org.example.commands.CommandManager;
-import org.example.store.Store;
-import org.example.store.Role;
-
-import java.util.HashMap;
-import java.util.Map;
+import org.example.store.Main;
+import org.example.store.stores.Store;
 
 public class Lidl extends Store {
 
 
-    public Lidl(CommandManager commandManager) {
-        super(commandManager.getRole(), "LIDL");
-        enter(commandManager.getRole());
+    public Lidl(Main main) {
+        super(main.storeManager.getRole(), "LIDL");
+        enter(main.storeManager.getRole());
     }
 
     @Override

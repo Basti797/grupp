@@ -2,15 +2,16 @@ package org.example.commands.impl;
 
 import org.example.commands.Command;
 import org.example.commands.CommandManager;
-import org.example.store.titles.Customer;
+import org.example.store.Main;
+import org.example.store.titles.impl.Customer;
 
 public class AddToBasketCommand extends Command {
-    private final CommandManager commandManager;
+    private final Main main;
 
-    public AddToBasketCommand(CommandManager manager) {
+    public AddToBasketCommand(Main main) {
         super("add to basket");
-        this.commandManager = manager;
-        if (!(commandManager.getRole() instanceof Customer)) {
+        this.main = main;
+        if (!(main.storeManager.getRole() instanceof Customer)) {
             throw new IllegalArgumentException("AddToBasketCommand can only be run by Customer");
         }
     }
@@ -28,13 +29,13 @@ public class AddToBasketCommand extends Command {
                 arguments.append(" ");
             }
         }
-        String selection = arguments.toString();
 
-        commandManager.getStore().getStoreItems().entrySet().stream()
+        String selection = arguments.toString();
+        main.storeManager.getStore().getStoreItems().entrySet().stream()
                 .filter(entry -> entry.getKey().equalsIgnoreCase(selection))
                 .findAny()
                 .ifPresent(entry -> {
-                    Customer customer = (Customer) commandManager.getRole();
+                    Customer customer = (Customer) main.storeManager.getRole();
                     customer.addToBasket(entry.getKey(), entry.getValue());
                     System.out.println("Added " + entry.getKey() + "(" + entry.getValue() + " SEK) to " + customer.getName() + "'s basket");
                 });

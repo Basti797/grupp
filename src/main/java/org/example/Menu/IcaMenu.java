@@ -1,10 +1,11 @@
 package org.example.Menu;
 
-import org.example.commands.CommandManager;
+
+import org.example.store.Main;
 
 public class IcaMenu extends StoreMenu {
-    public IcaMenu(CommandManager commandManager) {
-        super(commandManager);
+    public IcaMenu(Main main) {
+        super(main);
     }
 
     @Override

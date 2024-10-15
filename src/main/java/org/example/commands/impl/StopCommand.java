@@ -2,17 +2,18 @@ package org.example.commands.impl;
 
 import org.example.commands.Command;
 import org.example.commands.CommandManager;
+import org.example.store.Main;
 
 public class StopCommand extends Command {
-    private final CommandManager commandManager;
-    public StopCommand(CommandManager commandManager) {
+    private final Main main;
+    public StopCommand(Main main) {
         super("stop");
-        this.commandManager = commandManager;
+        this.main = main;
     }
 
     @Override
     public void exec(String[] args) {
         System.out.println("Exiting program!");
-        commandManager.setRunning(false);
+        main.getCommandManager().setRunning(false);
     }
 }

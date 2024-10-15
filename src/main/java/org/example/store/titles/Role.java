@@ -1,4 +1,4 @@
-package org.example.store;
+package org.example.store.titles;
 
 
 public class Role {

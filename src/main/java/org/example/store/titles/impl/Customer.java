@@ -1,6 +1,6 @@
-package org.example.store.titles;
+package org.example.store.titles.impl;
 
-import org.example.store.Role;
+import org.example.store.titles.Role;
 
 import java.util.HashMap;
 import java.util.Map;

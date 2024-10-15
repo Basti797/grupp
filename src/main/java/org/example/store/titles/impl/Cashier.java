@@ -1,4 +1,4 @@
-package org.example.store.titles;
+package org.example.store.titles.impl;
 
 public class Cashier extends Employee {
 

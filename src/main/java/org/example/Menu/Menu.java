@@ -1,19 +1,20 @@
 package org.example.Menu;
 
-import org.example.commands.CommandManager;
+
+import org.example.store.Main;
 
 public abstract class Menu {
-    protected CommandManager commandManager;
-    public Menu(CommandManager commandManager){
-        this.commandManager = commandManager;
-        commandManager.getCommands().clear();
+    protected Main main;
+    public Menu(Main main){
+        this.main = main;
+        main.getCommandManager().getCommands().clear();
     }
 
     public void Welcome() {
         System.out.println("commands: ");
-        for (int i = 0; i < commandManager.getCommands().size(); ++i) {
-            System.out.print(commandManager.getCommands().get(i).getName());
-            if (i != commandManager.getCommands().size() - 1) {
+        for (int i = 0; i < main.getCommandManager().getCommands().size(); ++i) {
+            System.out.print(main.getCommandManager().getCommands().get(i).getName());
+            if (i != main.getCommandManager().getCommands().size() - 1) {
                 System.out.print(", ");
             }
         }

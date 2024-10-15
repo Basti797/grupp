@@ -1,13 +1,13 @@
-package org.example.store.stores;
+package org.example.store.stores.impl;
 
 
-import org.example.commands.CommandManager;
-import org.example.store.Store;
+import org.example.store.Main;
+import org.example.store.stores.Store;
 
 public class Ica extends Store {
-    public Ica(CommandManager commandManager) {
-        super(commandManager.getRole(), "ICA");
-        enter(commandManager.getRole());
+    public Ica(Main main) {
+        super(main.storeManager.getRole(), "ICA");
+        enter(main.storeManager.getRole());
     }
 
     @Override

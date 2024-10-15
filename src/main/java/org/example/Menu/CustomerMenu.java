@@ -1,15 +1,16 @@
 package org.example.Menu;
 
-import org.example.commands.CommandManager;
 import org.example.commands.impl.GoToStoreCommand;
 import org.example.commands.impl.StopCommand;
+import org.example.store.Main;
+
 
 public class CustomerMenu extends Menu {
-    public CustomerMenu(CommandManager commandManager) {
-        super(commandManager);
-        commandManager.getCommands().clear();
-        commandManager.addCommand(new StopCommand(commandManager));
-        commandManager.addCommand(new GoToStoreCommand(commandManager));
+    public CustomerMenu(Main main) {
+        super(main);
+        main.getCommandManager().getCommands().clear();
+        main.getCommandManager().addCommand(new StopCommand(main));
+        main.getCommandManager().addCommand(new GoToStoreCommand(main));
     }
 
     @Override

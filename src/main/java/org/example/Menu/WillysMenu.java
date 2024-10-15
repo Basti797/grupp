@@ -1,10 +1,11 @@
 package org.example.Menu;
 
-import org.example.commands.CommandManager;
+
+import org.example.store.Main;
 
 public class WillysMenu extends StoreMenu{
-    public WillysMenu(CommandManager commandManager) {
-        super(commandManager);
+    public WillysMenu(Main main) {
+        super(main);
     }
 
     @Override

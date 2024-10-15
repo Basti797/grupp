@@ -1,26 +1,14 @@
 package org.example.commands;
-
-import org.example.Menu.CustomerMenu;
-import org.example.Menu.IcaMenu;
-import org.example.Menu.LidlMenu;
-import org.example.Menu.WillysMenu;
 import org.example.store.Main;
-import org.example.store.stores.Ica;
-import org.example.store.stores.Lidl;
-import org.example.store.stores.Willys;
-import org.example.store.Store;
-import org.example.store.Role;
-import org.example.store.titles.*;
-
 import java.util.ArrayList;
 
 public class CommandManager {
-    private Role role;
-    private Store store;
     private final ArrayList<Command> commands;
     private boolean running = true;
+    private final Main main;
+    public CommandManager(Main main) {
+        this.main = main;
 
-    public CommandManager() {
         this.commands = new ArrayList<>();
     }
 
@@ -101,61 +89,12 @@ public class CommandManager {
     }
 
 
-    public void selectStore(String storeSelection) {
 
-        switch (storeSelection) {
-            case "lidl":
-                store = new Lidl(this);
-                Main.menu = new LidlMenu(this);
-                break;
-            case "willys":
-                store = new Willys(this);
-                Main.menu = new WillysMenu(this);
-                break;
-            case "ica":
-                store = new Ica(this);
-                Main.menu = new IcaMenu(this);
-                break;
-            default:
-                store = new Lidl(this);
-                Main.menu = new LidlMenu(this);
-        }
-    }
 
-    public Role getRole() {
-        if (role == null) {
-            System.out.println("No role selected");
-        }
 
-        return this.role;
-    }
 
-    public Store getStore() {
-        return this.store;
-    }
 
-    public void selectRole(String roleString, String name) {
-        switch (roleString.toLowerCase()) {
-            case "manager":
-                role = new Manager(name);
-                break;
-            case "cashier":
-                role = new Cashier(name);
-                break;
-            case "customer":
-                role = new Customer(name);
-                Main.menu = new CustomerMenu(this);
-                break;
-            case "employee":
-                role = new Employee(name);
-                break;
-            case "adminstrator":
-                role = new Administrator(name);
-                break;
-            default:
-                role = new Customer(name);
-                break;
-        }
-    }
+
+
 
 }
