@@ -1,5 +1,6 @@
-package org.example.Menu;
+package org.example.menus.impl.storemenus;
 
+import org.example.menus.impl.StoreMenu;
 import org.example.store.Main;
 
 public class LidlMenu extends StoreMenu {

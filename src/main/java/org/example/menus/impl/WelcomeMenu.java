@@ -1,12 +1,13 @@
-package org.example.Menu;
+package org.example.menus.impl;
 
 
 import org.example.commands.impl.SelectRoleCommand;
 import org.example.commands.impl.StopCommand;
+import org.example.menus.Menu;
 import org.example.store.Main;
 
 
-public class WelcomeMenu extends Menu{
+public class WelcomeMenu extends Menu {
     public WelcomeMenu(Main main) {
         super(main);
         main.getCommandManager().addCommand(new SelectRoleCommand(main));

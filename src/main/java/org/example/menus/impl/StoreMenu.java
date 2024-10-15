@@ -1,8 +1,9 @@
-package org.example.Menu;
+package org.example.menus.impl;
 
 import org.example.commands.impl.AddToBasketCommand;
 import org.example.commands.impl.ListAddedProductsCommand;
 import org.example.commands.impl.ListProductsCommand;
+import org.example.menus.Menu;
 import org.example.store.Main;
 import org.example.store.titles.impl.Customer;
 

@@ -1,4 +1,4 @@
-package org.example.Menu;
+package org.example.menus;
 
 
 import org.example.store.Main;

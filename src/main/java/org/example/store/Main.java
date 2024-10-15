@@ -1,11 +1,11 @@
 package org.example.store;
 
-import org.example.commands.Command;
 import org.example.commands.CommandManager;
 
 
 import java.util.Scanner;
-import org.example.Menu.*;
+import org.example.menus.*;
+import org.example.menus.impl.WelcomeMenu;
 import org.example.store.stores.StoreManager;
 
 public class Main {

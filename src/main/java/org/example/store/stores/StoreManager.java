@@ -1,6 +1,10 @@
 package org.example.store.stores;
 
-import org.example.Menu.*;
+import org.example.menus.impl.rolemenus.CustomerMenu;
+import org.example.menus.impl.rolemenus.ManagerMenu;
+import org.example.menus.impl.storemenus.IcaMenu;
+import org.example.menus.impl.storemenus.LidlMenu;
+import org.example.menus.impl.storemenus.WillysMenu;
 import org.example.store.Main;
 import org.example.store.stores.impl.Ica;
 import org.example.store.stores.impl.Lidl;
@@ -9,9 +13,7 @@ import org.example.store.titles.Role;
 import org.example.store.titles.impl.*;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 public class StoreManager {
