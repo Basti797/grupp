@@ -5,8 +5,11 @@ import org.example.store.titles.Customer;
 import org.example.store.titles.Employee;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public abstract class Store {
+    protected Map<String, Integer> storeItems = new HashMap<>();
     public ArrayList<CashRegister> cashRegister = new ArrayList<>();
     public ArrayList<Employee> employees = new ArrayList<>();
 
@@ -16,6 +19,11 @@ public abstract class Store {
     public Store(Role role, String storeName) {
         this.role = role;
         this.storeName = storeName;
+        this.populateItems();
+    }
+
+    protected void populateItems() {
+        storeItems.put("default", 2000);
     }
 
     public void enter(Role role) {
@@ -32,4 +40,7 @@ public abstract class Store {
         }
     }
 
+    public Map<String, Integer> getStoreItems() {
+        return storeItems;
+    }
 }

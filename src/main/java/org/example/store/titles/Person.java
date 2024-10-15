@@ -1,4 +1,8 @@
 package org.example.store.titles;
 
-public class Person {
+public abstract class Person {
+    String name;
+    public Person(String name){
+        this.name = name;
+    }
 }

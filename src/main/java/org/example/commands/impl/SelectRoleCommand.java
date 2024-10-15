@@ -14,9 +14,11 @@ public class SelectRoleCommand extends Command {
 
     @Override
     public void exec(String[] args) {
+        System.out.print("Enter your name: ");
+        String name = Main.scanner.nextLine();
         System.out.println("Please select your role.");
         System.out.println("- customer");
         System.out.println("- Employee");
-        commandManager.selectRole(Main.scanner.nextLine());
+        commandManager.selectRole(Main.scanner.nextLine(), name);
     }
 }
