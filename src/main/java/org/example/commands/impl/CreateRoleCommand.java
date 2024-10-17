@@ -3,10 +3,10 @@ package org.example.commands.impl;
 import org.example.commands.Command;
 import org.example.store.Main;
 
-public class SelectRoleCommand extends Command {
+public class CreateRoleCommand extends Command {
     private final Main main;
-    public SelectRoleCommand(Main main){
-        super("select role");
+    public CreateRoleCommand(Main main){
+        super("create role");
         this.main = main;
 
     }
@@ -18,6 +18,6 @@ public class SelectRoleCommand extends Command {
         System.out.println("Please select your role.");
         System.out.println("- customer");
         System.out.println("- Employee");
-        main.storeManager.selectRole(Main.scanner.nextLine(), name);
+        main.roleManager.selectRole(Main.scanner.nextLine(), name);
     }
 }

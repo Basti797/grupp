@@ -16,7 +16,7 @@ public class ExitStoreCommand extends Command {
 
     @Override
     public void exec(String[] args) {
-        if (main.storeManager.getRole() instanceof Customer customer) {
+        if (main.roleManager.getRole() instanceof Customer customer) {
             if (!customer.getBasket().isEmpty()) {
                 System.out.println("Can't exit store, basket is not empty! Go to checkout.");
                 return;
@@ -24,7 +24,7 @@ public class ExitStoreCommand extends Command {
             main.menu = new CustomerMenu(main);
             System.out.println("bye!");
             return;
-        } else if (main.storeManager.getRole() instanceof Employee) {
+        } else if (main.roleManager.getRole() instanceof Employee) {
             System.out.println("bye!");
             main.menu = new EmployeeMenu(main);
         }

@@ -10,14 +10,14 @@ public class ListAddedProductsCommand extends Command {
     public ListAddedProductsCommand(Main main) {
         super("list basket");
         this.main = main;
-        if (!(main.storeManager.getRole() instanceof Customer)) {
+        if (!(main.roleManager.getRole() instanceof Customer)) {
             throw new IllegalArgumentException("ListAddedWaresCommand can only be run by Customer");
         }
     }
 
     @Override
     public void exec(String[] args) {
-        Customer customer = (Customer) main.storeManager.getRole();
+        Customer customer = (Customer) main.roleManager.getRole();
         customer.getBasket().entrySet().forEach(System.out::println);
     }
 

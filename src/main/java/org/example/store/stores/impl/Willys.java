@@ -5,9 +5,9 @@ import org.example.store.stores.Store;
 
 public class Willys extends Store {
     public Willys(Main main) {
-        super(main.storeManager.getRole(), "Willys");
+        super(main.roleManager.getRole(), "Willys");
 
-        enter(main.storeManager.getRole());
+        enter(main.roleManager.getRole());
     }
 
     @Override

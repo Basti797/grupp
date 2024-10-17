@@ -1,6 +1,8 @@
 package org.example.menus;
 
 
+import org.example.commands.impl.ChangeRoleCommand;
+import org.example.commands.impl.CreateRoleCommand;
 import org.example.store.Main;
 
 public abstract class Menu {
@@ -8,6 +10,8 @@ public abstract class Menu {
     public Menu(Main main){
         this.main = main;
         main.getCommandManager().getCommands().clear();
+        main.getCommandManager().addCommand(new ChangeRoleCommand(main));
+        main.getCommandManager().addCommand(new CreateRoleCommand(main));
     }
 
     public void Welcome() {

@@ -11,7 +11,7 @@ public class AddToBasketCommand extends Command {
     public AddToBasketCommand(Main main) {
         super("add to basket");
         this.main = main;
-        if (!(main.storeManager.getRole() instanceof Customer)) {
+        if (!(main.roleManager.getRole() instanceof Customer)) {
             throw new IllegalArgumentException("AddToBasketCommand can only be run by Customer");
         }
     }
@@ -35,7 +35,7 @@ public class AddToBasketCommand extends Command {
                 .filter(entry -> entry.getKey().equalsIgnoreCase(selection))
                 .findAny()
                 .ifPresent(entry -> {
-                    Customer customer = (Customer) main.storeManager.getRole();
+                    Customer customer = (Customer) main.roleManager.getRole();
                     customer.addToBasket(entry.getKey(), entry.getValue());
                     System.out.println("Added " + entry.getKey() + "(" + entry.getValue() + " SEK) to " + customer.getName() + "'s basket");
                 });

@@ -15,7 +15,7 @@ public class CheckoutCommand extends Command {
     @Override
     public void exec(String[] args) {
         main.getCommandManager().getCommand("list basket").exec(null);
-        if (main.storeManager.getRole() instanceof Customer customer){
+        if (main.roleManager.getRole() instanceof Customer customer){
             int sum = customer.getBasket().values().stream().mapToInt(Integer::intValue).sum();
             System.out.println("Your total is " + sum + "SEK");
             customer.clearBasket();

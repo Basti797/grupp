@@ -6,8 +6,8 @@ import org.example.store.stores.Store;
 
 public class Ica extends Store {
     public Ica(Main main) {
-        super(main.storeManager.getRole(), "ICA");
-        enter(main.storeManager.getRole());
+        super(main.roleManager.getRole(), "ICA");
+        enter(main.roleManager.getRole());
     }
 
     @Override

@@ -7,8 +7,8 @@ public class Lidl extends Store {
 
 
     public Lidl(Main main) {
-        super(main.storeManager.getRole(), "LIDL");
-        enter(main.storeManager.getRole());
+        super(main.roleManager.getRole(), "LIDL");
+        enter(main.roleManager.getRole());
     }
 
     @Override

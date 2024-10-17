@@ -11,7 +11,7 @@ public class StoreMenu extends Menu {
         super(main);
         this.main = main;
 
-        if (main.storeManager.getRole() instanceof Customer) {
+        if (main.roleManager.getRole() instanceof Customer) {
             main.getCommandManager().addCommand(new ListProductsCommand(main));
             main.getCommandManager().addCommand(new AddToBasketCommand(main));
             main.getCommandManager().addCommand(new ListAddedProductsCommand(main));
