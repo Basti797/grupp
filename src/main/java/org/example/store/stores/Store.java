@@ -24,6 +24,12 @@ public abstract class Store {
         this.populateItems();
     }
 
+    public void listEmployees(){
+        for (Employee employee : employees) {
+            System.out.println(employee.getName());
+        }
+    }
+
     protected void populateItems() {
         storeItems.put("default", 2000);
     }
@@ -42,7 +48,7 @@ public abstract class Store {
 //        }
     }
 
-    public void setEmployeeAtRegister(Employee employee){
+    public void setEmployeeAtRegister(Employee employee) {
         cashRegisters.add(new CashRegister(new Cashier(employee.getName())));
     }
 

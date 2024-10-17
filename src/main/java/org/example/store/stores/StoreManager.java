@@ -22,7 +22,8 @@ public class StoreManager {
     private List<Store> savedStores = new ArrayList<>();
 
     private final Main main;
-    public StoreManager(Main main){
+
+    public StoreManager(Main main) {
         this.main = main;
     }
 
@@ -42,18 +43,43 @@ public class StoreManager {
                 savedStores.add(store);
                 break;
             case "willys":
+                for (Store store : savedStores) {
+                    if (store instanceof Willys) {
+                        this.store = store;
+                        main.menu = new WillysMenu(main);
+                        return;
+                    }
+                }
                 store = new Willys(main);
                 main.menu = new WillysMenu(main);
+                savedStores.add(store);
                 break;
             case "ica":
+                for (Store store : savedStores) {
+                    if (store instanceof Ica) {
+                        this.store = store;
+                        main.menu = new IcaMenu(main);
+                        return;
+                    }
+                }
                 store = new Ica(main);
                 main.menu = new IcaMenu(main);
+                savedStores.add(store);
                 break;
             default:
-                store = new Lidl(main);
-                main.menu = new LidlMenu(main);
+//                for (Store store : savedStores) {
+//                    if (store instanceof Lidl) {
+//                        this.store = store;
+//                        main.menu = new LidlMenu(main);
+//                        return;
+//                    }
+//                }
+//                store = new Lidl(main);
+//                main.menu = new LidlMenu(main);
+//                savedStores.add(store);
         }
     }
+
     public void selectRole(String roleString, String name) {
         switch (roleString.toLowerCase()) {
             case "manager":
@@ -78,6 +104,7 @@ public class StoreManager {
                 break;
         }
     }
+
     public Role getRole() {
         if (role == null) {
             System.out.println("No role selected");
@@ -89,7 +116,8 @@ public class StoreManager {
     public Store getStore() {
         return this.store;
     }
-    public void setStore(Store store){
+
+    public void setStore(Store store) {
         this.store = store;
     }
 }

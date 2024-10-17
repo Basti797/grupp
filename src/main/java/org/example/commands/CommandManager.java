@@ -48,7 +48,6 @@ public class CommandManager {
             }
             if (commandArgs.length>2){
                 if (command.getName().equalsIgnoreCase(commandArgs[0] + " " + commandArgs[1])){
-                    System.out.println("1");
                     command.exec(commandArgs);
                     return;
                 }

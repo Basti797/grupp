@@ -21,4 +21,8 @@ public class Customer extends Role {
     public void addToBasket(String thingToAdd, int cost){
         basket.put(thingToAdd, cost);
     }
+
+    public void clearBasket() {
+        this.basket.clear();
+    }
 }

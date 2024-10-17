@@ -13,6 +13,7 @@ public class GoToStoreCommand extends Command {
     @Override
     public void exec(String[] args) {
         main.storeManager.selectStore(args[2]);
+        main.storeManager.getStore().listEmployees();
 
     }
 }
