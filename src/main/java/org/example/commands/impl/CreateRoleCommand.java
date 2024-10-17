@@ -14,10 +14,12 @@ public class CreateRoleCommand extends Command {
     @Override
     public void exec(String[] args) {
         System.out.print("Enter your name: ");
-        String name = Main.scanner.nextLine();
+        String name = Main.scanner.nextLine().toLowerCase();
         System.out.println("Please select your role.");
-        System.out.println("- customer");
+        System.out.println("- Customer");
         System.out.println("- Employee");
+        System.out.println("- Administrator");
+        System.out.println("- Manager");
         main.roleManager.selectRole(Main.scanner.nextLine(), name);
     }
 }

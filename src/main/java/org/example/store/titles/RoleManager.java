@@ -1,5 +1,6 @@
 package org.example.store.titles;
 
+import org.example.menus.impl.rolemenus.AdministratorMenu;
 import org.example.menus.impl.rolemenus.CustomerMenu;
 import org.example.menus.impl.rolemenus.EmployeeMenu;
 import org.example.menus.impl.rolemenus.ManagerMenu;
@@ -42,6 +43,7 @@ public class RoleManager {
                 break;
             case "adminstrator":
                 role = new Administrator(name);
+                main.menu = new AdministratorMenu(main);
                 savedPeople.add(role);
                 break;
             default:

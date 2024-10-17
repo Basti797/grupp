@@ -17,8 +17,7 @@ public class PutEmployeeAtRegisterCommand extends Command {
 
     @Override
     public void exec(String[] args) {
-        Manager manager = (Manager) main.roleManager.getRole();
-        main.getCommandManager().getCommand("list employees").exec(null);
+        main.getCommandManager().getCommand("list employee").exec(null);
         System.out.print("Enter employee index: ");
         int answer = main.scanner.nextInt();
         main.scanner.nextLine();
